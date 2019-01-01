@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  presidency: MyString
+  years_active: MyString
+  drink_type: MyString
+  specific_drink: MyString
+  alt_one: MyString
+  alt_two: MyString
+  challenge: one
+
+two:
+  name: MyString
+  presidency: MyString
+  years_active: MyString
+  drink_type: MyString
+  specific_drink: MyString
+  alt_one: MyString
+  alt_two: MyString
+  challenge: two

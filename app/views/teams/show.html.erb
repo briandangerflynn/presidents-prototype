@@ -1,0 +1,23 @@
+<% if @user.team_id.blank? %>
+
+  <%= form_tag(team_path, method: :get) do %>
+    <%= password_field_tag :password, params[:password] %>
+    <%= submit_tag 'Search', name: nil %>
+  <% end %>
+
+<% else %>
+
+  <h2><%= @team.teamname %></h2>
+  <p>Team members:</p>
+  <% @users.each do |user| %>
+    <%= @user.name %>
+  <% end %>
+
+  <% unless @challenge %>
+    <%= form_for ([@team, @new_challenge]) do |f| %>
+      <%= f.hidden_field :team_id, :value => @team.id %>
+      <%= f.submit "Begin Challenge?" %>
+    <% end %>
+  <% end %>
+
+<% end %>

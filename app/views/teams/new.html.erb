@@ -1,0 +1,18 @@
+hello <%= @user.name %>
+
+<div class="form">
+  <h2>Create Team</h2>
+
+  <%= form_for @team, url: {action: "create"}, :autocomplete => "on" do |f| %>
+
+    <%= f.text_field :teamname, :placeholder => "Name" %>
+
+    <%= f.password_field :password, :placeholder => "Password (must be 5 characters)" %>
+
+    <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+
+    <%= f.submit "Create" %>
+  <% end %>
+
+  <p>Already got a team? <a href="/join_team">Join here</a>!</p>
+</div>

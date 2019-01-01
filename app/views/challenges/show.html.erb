@@ -1,0 +1,31 @@
+<div id="challenge-tab-section">
+  <div id="challengers-view" class="challenge-tab">
+    <p>Challengers</p>
+    <p><%= @challengers.count %><p>
+  </div>
+  <div id="victories-view" class="challenge-tab">
+    <p>Victories</p>
+    <p><%= @victories.count %></p>
+  </div>
+</div>
+
+<% @challengers.each do |president| %>
+
+  <div class="challenger">
+    <div class="pres-image">
+      <img src="<%= president.image_url %>" alt="image of <%= president.name %>">
+    </div>
+    <div class="pres-info">
+      <a href="/teams/<%= @team.id %>/challenges/<%= @challenge.id %>/presidents/<%= president.id %>"><h3><%= president.name %></h3></a>
+      <small><%= president.presidency %> President</small>
+      <small> (<%= president.years_active %>)</small>
+      <p>Favorite Drink: <b><%= president.drink_type %></b></p>
+    </div>
+    <div class="pres-defeated">
+      <p>Drank!</p>
+    </div>
+  </div>
+
+
+
+<% end %>

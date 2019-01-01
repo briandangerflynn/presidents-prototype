@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PresidentsDayChallenge</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+        <!-- adjusts app to look correct on most devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <% if current_user_challenge %>
+          <a href="/teams/<%= current_user_team.id %>/challenges/<%= current_user_challenge.id %>">Challenge</a>
+        <% end %>
+        <% if current_user_team %>
+          <%= link_to "Team", current_user_team %>
+        <% end %>
+        <% if current_user %>
+          <%= link_to "Profile", current_user %>
+          <a href="/logout">Logout</a>
+        <% end %>
+      </nav>
+      <div>
+        <h1 id="title">President's Day Challenge</h1>
+
+      </div>
+    </header><!-- /header -->
+
+
+    <%= yield %>
+  </body>
+</html>
