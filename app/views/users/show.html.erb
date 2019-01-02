@@ -1,4 +1,6 @@
-<h3>Presidents Defeated by <%= @user.name.capitalize %>:</h3>
-<% @victories.each do |president| %>
-  <li><%= president.name %></li>
-<% end %>
+<div id="user-show">
+  <h3>Presidents Defeated by <%= @user.name.capitalize %>:</h3>
+  <% @victories.each do |president| %>
+    <li><%= president.name %></li>
+  <% end %>
+</div>

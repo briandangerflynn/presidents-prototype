@@ -6,12 +6,21 @@
   <% end %>
 
 <% else %>
-
-  <h2><%= @team.teamname %></h2>
-  <p>Team members:</p>
-  <% @users.each do |user| %>
-    <%= @user.name %>
-  <% end %>
+  <h2 id="team-show-teamname"><%= @team.teamname %></h2>
+  <div id="team-show">
+    <div id="team-member-list">
+      <p><b>Team members:</b></p>
+      <% @users.each do |user| %>
+        <p><%= link_to @user.name, @user %></p>
+      <% end %>
+    </div>
+    <div id="team-member-scores">
+      <p><b>Scores:</b></p>
+      <% @users.each do |user| %>
+        <p><%= @presidents.where(defeated_by: user.id).count %></p>
+      <% end %>
+    </div>
+  </div>
 
   <% unless @challenge %>
     <%= form_for ([@team, @new_challenge]) do |f| %>

@@ -160,7 +160,30 @@ input {
 
 }
 
+#user-show {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 500px;
+}
 
+#team-show {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  max-width: 500px;
+}
+
+#team-show-teamname {
+  text-align: center;
+}
+
+#team-member-list {
+  flex-grow: 1;
+}
+
+#team-member-scores {
+  flex-grow: 1;
+}
 
 
 

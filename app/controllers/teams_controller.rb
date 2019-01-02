@@ -15,6 +15,9 @@ class TeamsController < ApplicationController
       @users = User.where(team_id: @team.id).all
       @new_challenge = Challenge.new
       @challenge = Challenge.where(team_id: @team.id).first
+      @presidents = President.where(challenge_id: @challenge.id).all
+      @challengers = @presidents.where(defeated: false).all
+      @victories = @presidents.where(defeated: true).all
     end
   end
 
