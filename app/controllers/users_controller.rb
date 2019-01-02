@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @victories = President.where(defeated_by: @user.id).all
   end
 
   def new

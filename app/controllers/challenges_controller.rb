@@ -6,9 +6,21 @@ class ChallengesController < ApplicationController
   def show
     @team = Team.where(id: current_user.team_id).first
     @challenge = Challenge.find(params[:id])
-    @presidents = President.where(challenge_id: @challenge.id).all.order(:id)
-    @challengers = @presidents.where(defeated: false).all
-    @victories = @presidents.where(defeated: true).all
+    @presidents = President.where(challenge_id: @challenge.id)
+    @victories = @presidents.where(defeated: true).all.order(:id)
+    @challengers = @presidents.where(defeated: false).all.order(:id)
+  end
+
+  def defeat
+    @president = President.where(id: params[:data]).first
+    @president.update_attributes(defeated: true)
+    @president.update_attributes(defeated_by: current_user.id)
+  end
+
+  def undo_defeat
+    @president = President.where(id: params[:data]).first
+    @president.update_attributes(defeated: false)
+    @president.update_attributes(defeated_by: nil)
   end
 
   def new

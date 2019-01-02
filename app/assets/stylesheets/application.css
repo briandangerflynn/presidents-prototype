@@ -27,6 +27,10 @@ a {
   text-decoration: none;
 }
 
+.hidden {
+  display: none;
+}
+
 header {
   text-align: center;
 }
@@ -107,18 +111,26 @@ input {
   flex-grow: 2;
 }
 
-.pres-defeated {
+.pres-defeat, .undo-pres-defeat {
   width: 70px;
   text-align: center;
   flex-grow: 1;
+  cursor: pointer;
 }
 
-.pres-defeated p {
+.pres-defeat p, .undo-pres-defeat p {
   font-weight: bold;
   line-height: 98px;
   margin: 0;
-  background-color: #de0421;
   color: white;
+}
+
+.pres-defeat p {
+  background-color: #de0421;
+}
+
+.undo-pres-defeat p {
+  background-color: lightgray;
 }
 
 #challenge-tab-section {
@@ -133,6 +145,7 @@ input {
   flex-grow: 1;
   width: 90%;
   text-align: center;
+  cursor: pointer;
 }
 
 .challenge-tab p {

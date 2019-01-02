@@ -18,3 +18,63 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).on("click", ".pres-defeat", function(){
+  var president = ($(this).attr('data-id'))
+  $.ajax({
+    url: '/defeat',
+    method: 'POST',
+    dataType: 'json',
+    data: {
+      'data': president,
+    },
+  });
+  location.reload();
+})
+
+$(document).on("click", ".undo-pres-defeat", function(){
+  var president = ($(this).attr('data-id'))
+  $.ajax({
+    url: '/undo_defeat',
+    method: 'POST',
+    dataType: 'json',
+    data: {
+      'data': president,
+    },
+  });
+  location.reload();
+})
+
+$(document).on("click", "#victories-view", function(){
+  $("#challengers-list").hide()
+  $("#victories-list").show()
+  $("#victories-view").css('background-color', 'lightblue');
+  $("#challengers-view").css('background-color', 'white');
+});
+
+$(document).on("click", "#challengers-view", function(){
+  $("#challengers-list").show()
+  $("#victories-list").hide()
+  $("#victories-view").css('background-color', 'white');
+  $("#challengers-view").css('background-color', 'lightblue');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

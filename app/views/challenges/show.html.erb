@@ -3,29 +3,46 @@
     <p>Challengers</p>
     <p><%= @challengers.count %><p>
   </div>
-  <div id="victories-view" class="challenge-tab">
+  <div id="victories-view" class="challenge-tab" data-id="<%= @team.id%>-<%= @challenge.id %>">
     <p>Victories</p>
     <p><%= @victories.count %></p>
   </div>
 </div>
 
-<% @challengers.each do |president| %>
-
-  <div class="challenger">
-    <div class="pres-image">
-      <img src="<%= president.image_url %>" alt="image of <%= president.name %>">
+<div id="challengers-list">
+  <% @challengers.each do |president| %>
+    <div class="challenger">
+      <div class="pres-image">
+        <img src="<%= president.image_url %>" alt="image of <%= president.name %>">
+      </div>
+      <div class="pres-info">
+        <a href="/teams/<%= @team.id %>/challenges/<%= @challenge.id %>/presidents/<%= president.id %>"><h3><%= president.name %></h3></a>
+        <small><%= president.presidency %> President</small>
+        <small> (<%= president.years_active %>)</small>
+        <p>Favorite Drink: <b><%= president.drink_type %></b></p>
+      </div>
+      <div class="pres-defeat" data-id="<%= president.id %>">
+        <p>Drank!</p>
+      </div>
     </div>
-    <div class="pres-info">
-      <a href="/teams/<%= @team.id %>/challenges/<%= @challenge.id %>/presidents/<%= president.id %>"><h3><%= president.name %></h3></a>
-      <small><%= president.presidency %> President</small>
-      <small> (<%= president.years_active %>)</small>
-      <p>Favorite Drink: <b><%= president.drink_type %></b></p>
+  <% end %>
+</div>
+
+<div id="victories-list" class="hidden">
+  <% @victories.each do |president| %>
+    <div class="challenger">
+      <div class="pres-image">
+        <img src="<%= president.image_url %>" alt="image of <%= president.name %>">
+      </div>
+      <div class="pres-info">
+        <a href="/teams/<%= @team.id %>/challenges/<%= @challenge.id %>/presidents/<%= president.id %>"><h3><%= president.name %></h3></a>
+        <small><%= president.presidency %> President</small>
+        <small> (<%= president.years_active %>)</small>
+        <p>Favorite Drink: <b><%= president.drink_type %></b></p>
+      </div>
+      <div class="undo-pres-defeat" data-id="<%= president.id %>">
+        <p>Undo!</p>
+      </div>
     </div>
-    <div class="pres-defeated">
-      <p>Drank!</p>
-    </div>
-  </div>
-
-
-
-<% end %>
+  <% end %>
+</div>
