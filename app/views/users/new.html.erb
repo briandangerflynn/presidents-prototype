@@ -1,6 +1,6 @@
 <div class="form">
   <h2>Create Account</h2>
-
+  <p><small>Got an account? <a href="/login" class="underline red">Sign In</a></small></p>
   <%= form_for @user, url: {action: "create"}, :autocomplete => "on" do |f| %>
 
     <%= f.text_field :name, :placeholder => "Name", :autocomplete => "given-name" %>
@@ -11,8 +11,7 @@
 
     <%= f.hidden_field :team_id, :value => nil %>
 
-    <%= f.submit "Create" %>
+    <%= f.submit "Create", :class => "submit-button" %>
   <% end %>
 
-  <p>Got an account? <a href="/login">Login</a></p>
 </div>
