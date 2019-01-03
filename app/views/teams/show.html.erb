@@ -1,8 +1,8 @@
 <% if @user.team_id.blank? %>
-
+  <center><h2>Enter Team Password to Join</h2></center>
   <%= form_tag(team_path, method: :get) do %>
-    <%= password_field_tag :password, params[:password] %>
-    <%= submit_tag 'Search', name: nil %>
+    <%= password_field_tag :password, params[:password], :placeholder => "Team Password" %>
+    <%= submit_tag 'Submit', name: nil, :class => "submit-button" %>
   <% end %>
 
 <% else %>
@@ -11,7 +11,7 @@
     <div id="team-member-list">
       <p><b>Team members:</b></p>
       <% @users.each do |user| %>
-        <p><%= link_to @user.name, @user %></p>
+        <p><%= link_to user.name, @user %></p>
       <% end %>
     </div>
     <div id="team-member-scores">

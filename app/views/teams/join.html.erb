@@ -1,10 +1,9 @@
-<p>Want to create a new team? <a href="/teams/new">Click here</a>!</p>
-
 <div class="form">
   <h2>Join Existing Team</h2>
+  <p><small>Want to create a new team? <a href="/teams/new" class="underline red">Click here</a>!</small></p>
   <%= form_tag(join_team_path, method: :get) do %>
-    <%= text_field_tag :teamname, params[:teamname] %>
-    <%= submit_tag 'Search', name: nil %>
+    <%= text_field_tag :teamname, params[:teamname], :placeholder => "Enter Team Name" %>
+    <%= submit_tag 'Search', name: nil, :class => "submit-button" %>
   <% end %>
 
 

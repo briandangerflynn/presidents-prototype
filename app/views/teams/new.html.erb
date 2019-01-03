@@ -1,8 +1,6 @@
-hello <%= @user.name %>
-
 <div class="form">
   <h2>Create Team</h2>
-
+  <p><small>Already got a team? <a href="/join_team" class="underline red">Join here</a>!</small></p>
   <%= form_for @team, url: {action: "create"}, :autocomplete => "on" do |f| %>
 
     <%= f.text_field :teamname, :placeholder => "Name" %>
@@ -11,8 +9,6 @@ hello <%= @user.name %>
 
     <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
 
-    <%= f.submit "Create" %>
+    <%= f.submit "Create", :class => "submit-button" %>
   <% end %>
-
-  <p>Already got a team? <a href="/join_team">Join here</a>!</p>
 </div>
