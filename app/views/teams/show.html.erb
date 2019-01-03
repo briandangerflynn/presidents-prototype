@@ -1,3 +1,4 @@
+<center><h2 id="team-show-teamname"><%= @team.teamname.titleize %></h2></center>
 <% if @user.team_id.blank? %>
   <center><h2>Enter Team Password to Join</h2></center>
   <%= form_tag(team_path, method: :get) do %>
@@ -8,14 +9,28 @@
 <% elsif @challenge.blank? %>
   <%= form_for ([@team, @new_challenge]) do |f| %>
     <%= f.hidden_field :team_id, :value => @team.id %>
-    <%= f.submit "Begin Challenge?" %>
+    <%= f.submit "Begin Challenge?", :class => "submit-button" %>
   <% end %>
-
-<% else %>
-  <h2 id="team-show-teamname"><%= @team.teamname %></h2>
   <div id="team-show">
     <div id="team-member-list">
-      <p><b>Team members:</b></p>
+      <p><b>Team Members:</b></p>
+      <% @users.each do |user| %>
+        <p><%= link_to user.name, @user %></p>
+      <% end %>
+    </div>
+    <div id="team-member-scores">
+      <p><b>Scores:</b></p>
+      <% @users.each do |user| %>
+        <p>0</p>
+      <% end %>
+    </div>
+  </div>
+
+<% else %>
+
+  <div id="team-show">
+    <div id="team-member-list">
+      <p><b>Team Members:</b></p>
       <% @users.each do |user| %>
         <p><%= link_to user.name, @user %></p>
       <% end %>

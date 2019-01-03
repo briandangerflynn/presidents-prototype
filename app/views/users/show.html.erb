@@ -1,7 +1,7 @@
-<h2 id="team-show-teamname"><%= @user.name %></h2>
+<h2 id="team-show-teamname"><%= @user.name.titleize %></h2>
 
 <div id="user-show">
-  <h3>Presidents Defeated:</h3>
+  <p><b>Presidents Defeated:</b></p>
   <% @victories.each do |president| %>
     <li><%= president.name %></li>
   <% end %>
