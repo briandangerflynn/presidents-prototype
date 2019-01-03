@@ -22,6 +22,7 @@ class TeamsController < ApplicationController
   end
 
   def new
+    @user = current_user
     if current_user.team_id == nil
       @team = Team.new
     else
