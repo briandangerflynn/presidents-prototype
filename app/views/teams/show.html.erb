@@ -5,6 +5,12 @@
     <%= submit_tag 'Submit', name: nil, :class => "submit-button" %>
   <% end %>
 
+<% elsif @challenge %>
+  <%= form_for ([@team, @new_challenge]) do |f| %>
+    <%= f.hidden_field :team_id, :value => @team.id %>
+    <%= f.submit "Begin Challenge?" %>
+  <% end %>
+
 <% else %>
   <h2 id="team-show-teamname"><%= @team.teamname %></h2>
   <div id="team-show">
@@ -22,11 +28,6 @@
     </div>
   </div>
 
-  <% unless @challenge %>
-    <%= form_for ([@team, @new_challenge]) do |f| %>
-      <%= f.hidden_field :team_id, :value => @team.id %>
-      <%= f.submit "Begin Challenge?" %>
-    <% end %>
-  <% end %>
+
 
 <% end %>
