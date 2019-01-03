@@ -5,7 +5,7 @@
     <%= submit_tag 'Submit', name: nil, :class => "submit-button" %>
   <% end %>
 
-<% elsif @challenge %>
+<% elsif @challenge.blank? %>
   <%= form_for ([@team, @new_challenge]) do |f| %>
     <%= f.hidden_field :team_id, :value => @team.id %>
     <%= f.submit "Begin Challenge?" %>
