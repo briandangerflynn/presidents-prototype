@@ -1,5 +1,7 @@
+<h2 id="team-show-teamname"><%= @user.name %></h2>
+
 <div id="user-show">
-  <h3>Presidents Defeated by <%= @user.name.capitalize %>:</h3>
+  <h3>Presidents Defeated:</h3>
   <% @victories.each do |president| %>
     <li><%= president.name %></li>
   <% end %>
