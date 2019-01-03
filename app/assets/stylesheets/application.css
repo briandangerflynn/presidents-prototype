@@ -14,6 +14,11 @@
  *= require_self
  */
 
+@font-face {
+  font-family: "LMS Star Spangled";
+  src: url(/assets/LMS_Star_Spangled.ttf) format("truetype");
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -45,7 +50,7 @@ header {
 
 #title {
   max-width: 400px;
-  font-family: LMS Star Spangled;
+  font-family: "LMS Star Spangled";
   color: #de0421;
   font-size: 1.5em;
   line-height: 50px;
